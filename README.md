@@ -25,7 +25,7 @@
 ---
 ## Диаграмма классов
  Подсчёт животных через try-with-resources
-![alt text](imgs\animal_counter.png)
+![AnimalCounter](https://github.com/perchik817/humans_fr/blob/master/imgs/animal_counter.png)
 
 Родительский класс. Содержит name, birthDate и команды
 ![alt text](\imgs\classes_relations.png)
