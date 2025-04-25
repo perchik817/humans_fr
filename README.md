@@ -24,11 +24,12 @@
 
 ---
 ## Диаграмма классов
- Подсчёт животных через try-with-resources
+ ###### Подсчёт животных через try-with-resources
+
 ![AnimalCounter](https://github.com/perchik817/humans_fr/blob/master/imgs/animal_counter.png)
 
-Родительский класс. Содержит name, birthDate и команды
-![alt text](\imgs\classes_relations.png)
+###### Родительский класс. Содержит name, birthDate и команды
+![Ierarchy of Classes](https://github.com/perchik817/humans_fr/blob/master/imgs/classes_relations.png)
 
-Основное меню, обучение, добавление, просмотр
-![alt text](\imgs\animal_reg.png)
+###### Основное меню, обучение, добавление, просмотр
+![Main Commands](https://github.com/perchik817/humans_fr/blob/master//imgs/animal_reg.png)
