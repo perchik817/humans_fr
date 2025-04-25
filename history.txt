@@ -1,0 +1,33 @@
+    1  cat my_works
+    2  ls
+    3  csl
+    4  clear
+    5  ls
+    6  mkdir my_works
+    7  ls
+    8  cd my_works/
+    9  mkdir geekbr
+   10  cd geekbr/
+   11  cat Домашние_животные.txt
+   12  cat > Домашние_животные.txt
+   13  cat > Вьючные_животные.txt
+   14  cat Домашние_животные.txt Вьючные_животные.txt > Все_животные.txt
+   15  cat Все_животные.txt
+   16  mv Все_животные.txt Друзья_человека.txt
+   17  mkdir Животные
+   18  mv Друзья_человека.txt Животные/
+   19  history > history.txt
+   20  clear
+   21  sudo apt update
+   22  sudo apt install wget gnupg
+   23  wget https://dev.mysql.com/get/mysql-apt-config_0.8.29-1_all.deb
+   24  sudo dpkg -i mysql-apt-config_0.8.29-1_all.deb
+   25  sudo apt update
+   26  sudo apt install mysql-client
+   27  wget http://archive.ubuntu.com/ubuntu/pool/universe/h/htop/htop_3.2.1-1_amd64.deb
+   28  sudo apt install --download-only htop
+   29  wget https://launchpad.net/ubuntu/+archive/primary/+files/htop_3.2.2-1_amd64.deb
+   30  sudo dpkg -i htop_3.2.2-1_amd64.deb
+   31  sudo dpkg -r htop
+   32  history > history.txt
+
