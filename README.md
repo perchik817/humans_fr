@@ -25,10 +25,10 @@
 ---
 ## Диаграмма классов
  Подсчёт животных через try-with-resources
-![alt text](image.png)
+![alt text](imgs\animal_counter.png)
 
 Родительский класс. Содержит name, birthDate и команды
-![alt text](image-1.png)
+![alt text](\imgs\classes_relations.png)
 
 Основное меню, обучение, добавление, просмотр
-![alt text](image-2.png)
+![alt text](\imgs\animal_reg.png)
