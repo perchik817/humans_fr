@@ -24,3 +24,11 @@
 
 ---
 ## Диаграмма классов
+ Подсчёт животных через try-with-resources
+![alt text](image.png)
+
+Родительский класс. Содержит name, birthDate и команды
+![alt text](image-1.png)
+
+Основное меню, обучение, добавление, просмотр
+![alt text](image-2.png)
