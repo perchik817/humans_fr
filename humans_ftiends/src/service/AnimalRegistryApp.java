@@ -1,17 +1,19 @@
 package service;
 
 import models.Animal;
-import registry.Counter;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.*;
 
 public class AnimalRegistryApp {
-    private static final Map<Integer, Animal> animals = new HashMap<>();
-    private static int nextId = 1;
+    private static final List<Animal> animals = new ArrayList<>();
 
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
+//
+//    }
+
+    public void start(){
         Scanner scanner = new Scanner(System.in);
 
         try (Counter counter = new Counter()) {
@@ -64,7 +66,7 @@ public class AnimalRegistryApp {
             }
 
             Animal animal = AnimalFactory.createAnimal(type, name, birthDate, new ArrayList<>());
-            animals.put(nextId++, animal);
+            animals.add(animal);
 
             counter.add();  // увеличиваем счетчик в try-with-resources
 
@@ -78,20 +80,16 @@ public class AnimalRegistryApp {
     }
 
     private static void teachCommand(Scanner scanner) {
-        System.out.print("Введите ID животного: ");
-        int id;
-        try {
-            id = Integer.parseInt(scanner.nextLine().trim());
-        } catch (NumberFormatException e) {
-            System.out.println("Неверный формат ID.");
+        if (animals.isEmpty()) {
+            System.out.println("Сначала заведите хотя бы одно животное.");
             return;
         }
+        listAnimals();
+        System.out.print("Введите номер животного, чтобы обучить командe: ");
+        int num = readNumber(scanner, animals.size());
+        if (num == -1) return;
 
-        Animal animal = animals.get(id);
-        if (animal == null) {
-            System.out.println("Животное с таким ID не найдено.");
-            return;
-        }
+        Animal animal = animals.get(num - 1);
 
         System.out.print("Введите команду для обучения: ");
         String command = scanner.nextLine().trim();
@@ -106,20 +104,16 @@ public class AnimalRegistryApp {
     }
 
     private static void showCommands(Scanner scanner) {
-        System.out.print("Введите ID животного: ");
-        int id;
-        try {
-            id = Integer.parseInt(scanner.nextLine().trim());
-        } catch (NumberFormatException e) {
-            System.out.println("Неверный формат ID.");
+        if (animals.isEmpty()) {
+            System.out.println("Сначала заведите хотя бы одно животное.");
             return;
         }
+        listAnimals();
+        System.out.print("Введите номер животного, чтобы показать команды: ");
+        int num = readNumber(scanner, animals.size());
+        if (num == -1) return;
 
-        Animal animal = animals.get(id);
-        if (animal == null) {
-            System.out.println("Животное с таким ID не найдено.");
-            return;
-        }
+        Animal animal = animals.get(num - 1);
 
         List<String> commands = animal.getCommands();
         if (commands.isEmpty()) {
@@ -135,6 +129,23 @@ public class AnimalRegistryApp {
             return;
         }
         System.out.println("Список животных:");
-        animals.forEach((id, animal) -> System.out.println(id + ": " + animal));
+        for (int i = 0; i < animals.size(); i++) {
+            System.out.println((i + 1) + ": " + animals.get(i));
+        }
+    }
+
+    private static int readNumber(Scanner scanner, int max) {
+        String input = scanner.nextLine().trim();
+        try {
+            int num = Integer.parseInt(input);
+            if (num < 1 || num > max) {
+                System.out.println("Номер вне диапазона.");
+                return -1;
+            }
+            return num;
+        } catch (NumberFormatException e) {
+            System.out.println("Неверный формат числа.");
+            return -1;
+        }
     }
 }
